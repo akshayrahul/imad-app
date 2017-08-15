@@ -102,6 +102,14 @@ h2{
     return htmlTemplate;
 }
 
+var names=[];
+app.get('/submit-name/:name',function(req,res){
+    var name=req.query.name;
+    
+    names.push(name);
+    
+    res.send(JSON.stringify(name));
+});
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -120,14 +128,6 @@ app.get('/ui/style.css', function (req, res) {
 });
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
-var names=[];
-app.get('/submit-name/:name',function(req,res){
-    var name;
-    
-    names.push(name);
-    
-    res.send(JSON.stringify(name));
 });
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
