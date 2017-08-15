@@ -123,7 +123,7 @@ app.get('/ui/main.js', function (req, res) {
 });
 var names=[];
 app.get('/submit-name/:name',function(req,res){
-    var name=req.query.name;
+    var name;
     
     names.push(name);
     
